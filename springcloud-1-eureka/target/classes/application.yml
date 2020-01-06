@@ -1,0 +1,14 @@
+server: 
+  port: 8089
+  servlet:
+    context-path: / 
+eureka: 
+  server:
+    enable-self-preservation: true #自我保护 
+  instance: 
+    hostname: localhost         #eureka 确定自己服务器名称 
+  client:   
+    register-with-eureka: false   #是否注册自己到eureka中（自己本身） 
+    fetch-registry: false       #表示自己就是注册中心，不需要检索
+  service-url: 
+    defaultZone:http://${eureka.instance.hostname}:${server.port}/eureka

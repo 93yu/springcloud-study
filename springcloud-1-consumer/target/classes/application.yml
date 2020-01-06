@@ -1,0 +1,17 @@
+server: 
+  port: 8200
+spring:
+  application:
+    name: consumer-user
+eureka:  
+ client: 
+  #register-with-eureka: false   #不将自己信息注册到  eureka服务中
+  service-url: 
+     defaultZone: http://localhost:8089/eureka 
+ instance: 
+    instance-id: consumer 
+    prefer-ip-address: true #是否显示ip和地址
+    
+feign: 
+  hystrix: 
+    enabled: true

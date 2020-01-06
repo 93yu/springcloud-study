@@ -1,0 +1,56 @@
+spring: 
+#配置使用的环境
+  profiles:
+    active: dev   #当前的环境
+#分割不同的平行配置
+---
+#配置该环境的名字
+spring:
+  profiles: dev
+  #配置数据源
+  datasource:
+    username: root
+    password: 123
+    url: jdbc:mysql://localhost:3306/spring5?serverTimezone=GMT   
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource 
+    
+  application:   #定义服务器名称  整合cloud必须有
+   name: provider
+
+mybatis-plus:
+  type-aliases-package: com.li.springcloud.pojo
+  mapper-locations: classpath:/mybatis/mappers/*.xml
+  configuration: 
+    map-underscore-to-camel-case: true #开启驼峰命名
+      
+server: 
+  port: 8100
+  servlet:
+    context-path: /
+    
+eureka:  
+  instance: 
+    instance-id: provider_user_8100  #确定本服务的名字
+    prefer-ip-address: true             #是否显示ip和端口
+  client: 
+    service-url: 
+     defaultZone: http://localhost:8089/eureka 
+  
+--- 
+#配置该环境的名字
+spring:
+  profiles: pro 
+server: 
+  port: 8090
+  servlet:
+    context-path: /
+user: 
+  id: 2
+  username: li
+  age: 23
+  sex: 男
+student: 
+  id: 2
+  username: 学生
+  age: 26
