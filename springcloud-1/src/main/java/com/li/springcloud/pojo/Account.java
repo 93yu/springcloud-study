@@ -13,6 +13,31 @@ import lombok.experimental.Accessors;
 public class Account {
 	@TableId(type=IdType.INPUT)
 	private String id;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getMoney() {
+		return money;
+	}
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
+
 	private String name;
 	private int money;
 }

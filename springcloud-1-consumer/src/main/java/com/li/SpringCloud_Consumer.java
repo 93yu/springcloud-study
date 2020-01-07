@@ -13,7 +13,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 public class SpringCloud_Consumer {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringCloud_Consumer.class, args);
 
+		SpringApplication.run(SpringCloud_Consumer.class, args);
 	}
 }
